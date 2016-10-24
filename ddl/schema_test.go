@@ -66,9 +66,9 @@ func testDropSchema(c *C, ctx context.Context, d *ddl, dbInfo *model.DBInfo) (*m
 		SchemaID: dbInfo.ID,
 		Type:     model.ActionDropSchema,
 	}
-
 	err := d.doDDLJob(ctx, job)
 	c.Assert(err, IsNil)
+
 	ver := getSchemaVer(c, ctx)
 	return job, ver
 }
